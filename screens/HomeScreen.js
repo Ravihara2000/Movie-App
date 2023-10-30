@@ -16,10 +16,13 @@ import {
   Bars3CenterLeftIcon,
   MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
+import MovieList from "../component/MovieList";
 
 //const ios = Platform.OS == "ios";
 export default function HomeScreen() {
   const [trending, setTrending] = useState([1, 2, 3]);
+  const [upcoming, setUpcoming] = useState([1, 2, 3]);
+  const [topRated, setTopRated] = useState([1, 2, 3]);
   return (
     <View>
       <SafeAreaView>
@@ -43,6 +46,9 @@ export default function HomeScreen() {
         >
           {/*movie list */}
           <TrendingMovies data={trending} />
+
+          {/**upcoming movie raw */}
+          <MovieList title='upcoming' data={upcoming} />
         </ScrollView>
       </SafeAreaView>
     </View>
