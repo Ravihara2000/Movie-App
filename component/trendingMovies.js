@@ -34,7 +34,7 @@ export default function TrendingMovies({ data }) {
 
 const MovieCard = ({ item ,handClick}) => {
   return (
-    <TouchableWithoutFeedback onPress={handClick}>
+    <TouchableWithoutFeedback>
       <Image style={styles.movieCards} source={require('../assets/GoPro.jpg')} />
       
     </TouchableWithoutFeedback>

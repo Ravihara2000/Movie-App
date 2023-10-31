@@ -49,6 +49,9 @@ export default function HomeScreen() {
 
           {/**upcoming movie raw */}
           <MovieList title='upcoming' data={upcoming} />
+          
+          {/**top rated movie raw */}
+          <MovieList title='Top Rated' data={topRated} />
         </ScrollView>
       </SafeAreaView>
     </View>
