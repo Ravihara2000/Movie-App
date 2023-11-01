@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ChevronLeftIcon } from 'react-native-heroicons/outline';
 import { HeartIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from "@react-navigation/native";
+import { useState } from 'react';
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS=='ios';
@@ -15,6 +16,8 @@ export default function MovieScreen() {
         //call the movie detail api
     },[item])
     const navigation = useNavigation();
+    const [isFavorite, toggleFavorite] = useState(false);
+    const heartIconColor = isFavorite ? 'red' : 'white';
   return (
 
     <View style={styles.container}>
@@ -29,8 +32,8 @@ export default function MovieScreen() {
 
                 </ChevronLeftIcon>
             </TouchableOpacity>
-            <TouchableOpacity>
-                <HeartIcon size={35} color={'white'}></HeartIcon>
+            <TouchableOpacity  onPress={()=> toggleFavorite(isFavorite)}>
+                <HeartIcon size={35} color={heartIconColor}/>
             </TouchableOpacity>
         </SafeAreaView>
 
