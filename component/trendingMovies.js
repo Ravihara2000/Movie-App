@@ -13,34 +13,37 @@ import { useNavigation } from "@react-navigation/native";
 var { width, height } = Dimensions.get("window"); //get mobile height n width
 export default function TrendingMovies({ data }) {
   const navigation = useNavigation();
-  const handClick=()=>{
-    navigation.navigate('Movie',item)
-  }
+  const handClick = (item) => {
+    navigation.navigate("Movie", item);
+  };
   return (
     <View>
-      <Text>Trending</Text>
+      <Text style={styles.textclr}>Trending</Text>
       <Carousel
         data={data}
-        renderItem={({ item }) => <MovieCard item={item} handClick={handClick} />}
+        renderItem={({ item }) => (
+          <MovieCard item={item} handClick={handClick} />
+        )}
         firstItem={1}
         inactiveSlideOpacity={0.6}
         sliderWidth={600}
-        itemWidth={width*0.6}
+        itemWidth={width * 0.6}
         slideStyle={{ display: "flex", alignItems: "center" }}
       />
     </View>
   );
 }
 
-const MovieCard = ({ item ,handClick}) => {
+const MovieCard = ({ item, handClick }) => {
   return (
-    <TouchableWithoutFeedback>
-      <Image style={styles.movieCards} source={require('../assets/GoPro.jpg')} />
-      
+    <TouchableWithoutFeedback onPress={()=>handClick(item)}>
+      <Image
+        style={styles.movieCards}
+        source={require("../assets/GoPro.jpg")}
+      />
     </TouchableWithoutFeedback>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -53,13 +56,17 @@ const styles = StyleSheet.create({
     width: width * 0.6,
     height: height * 0.4,
   },
-  tex1:{
-    color:'white',
-    marginTop:100,
+  tex1: {
+    color: "white",
+    marginTop: 100,
   },
-  movieCards:{
+  movieCards: {
     width: width * 0.6,
     height: height * 0.4,
-    borderRadius:20,
-  }
+    borderRadius: 20,
+    flex: 1,
+  },
+  textclr: {
+    color: "white",
+  },
 });

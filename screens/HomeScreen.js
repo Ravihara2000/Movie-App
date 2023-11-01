@@ -20,11 +20,11 @@ import MovieList from "../component/MovieList";
 
 //const ios = Platform.OS == "ios";
 export default function HomeScreen() {
-  const [trending, setTrending] = useState([1, 2, 3]);
-  const [upcoming, setUpcoming] = useState([1, 2, 3]);
-  const [topRated, setTopRated] = useState([1, 2, 3]);
+  const [trending, setTrending] = useState([1, 2, 3, 4]);
+  const [upcoming, setUpcoming] = useState([1, 2, 3, 4]);
+  const [topRated, setTopRated] = useState([1, 2, 3, 4]);
   return (
-    <View>
+    <View style={styles.entireSc}>
       <SafeAreaView>
         <View style={styles.heroSection}>
           <Bars3CenterLeftIcon
@@ -71,9 +71,6 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: "space-between",
   },
-  body: {
-    backgroundColor: "grey",
-  },
   headerText: {
     fontSize: 22,
     fontWeight: "bold",
@@ -83,4 +80,9 @@ const styles = StyleSheet.create({
   firstLetter: {
     color: "orange",
   },
+  entireSc:{
+    backgroundColor:'black',
+    flex: 1,
+    
+  }
 });

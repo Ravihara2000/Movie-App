@@ -17,11 +17,11 @@ export default function MovieList({ title, data }) {
   let movieName = "call of duty moden warfare";
   const navigation = useNavigation();
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.titleHead}>
-        <Text>{title}</Text>
+        <Text style={styles.textclr}>{title}</Text>
         <TouchableOpacity>
-          <Text>See All</Text>
+          <Text style={styles.textclr}>See All</Text>
         </TouchableOpacity>
       </View>
       {/*movie row */}
@@ -51,9 +51,7 @@ export default function MovieList({ title, data }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor:'black',
   },
   titleHead: {
     justifyContent: "space-between",
@@ -63,6 +61,10 @@ const styles = StyleSheet.create({
   movieCards:{
     width: width * 0.33,
     height: height * 0.22,
+    flex: 1,
     borderRadius:20,
+  },
+  textclr:{
+    color:'white',
   }
 });
