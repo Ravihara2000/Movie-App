@@ -39,7 +39,7 @@ const MovieCard = ({ item, handClick }) => {
     <TouchableWithoutFeedback onPress={()=>handClick(item)}>
       <Image
         style={styles.movieCards}
-        source={require("../assets/GoPro.jpg")}
+        source={require("../assets/codmw.jpg")}
       />
     </TouchableWithoutFeedback>
   );

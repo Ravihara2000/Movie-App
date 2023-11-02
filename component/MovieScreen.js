@@ -7,6 +7,7 @@ import { HeartIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from "@react-navigation/native";
 import { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
+import Cast from './Cast';
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS==='ios';
@@ -23,6 +24,7 @@ export default function MovieScreen() {
       // Toggle the favorite state
       setIsFavorite(!isFavorite);
     };
+    const [cast, setCast] = useState([1,2,3,4,5])
     const heartIconColor = isFavorite ? 'yellow' : 'white';
   
   return (
@@ -44,7 +46,7 @@ export default function MovieScreen() {
             </TouchableOpacity>
         </SafeAreaView>
         <View>
-          <Image source={require('../assets/GoPro.jpg')}
+          <Image source={require('../assets/codmw.jpg')}
           style={{width,height:height*0.55}}/>
 
       <LinearGradient
@@ -63,13 +65,23 @@ export default function MovieScreen() {
         <Text style={styles.MovieDetail}>
           Released . 2020 . 170 min 
         </Text>
-
         {/**genres */}
+        <View style={styles.genresArea}>
+          <Text style={styles.genresText}t>Action .</Text>
+          <Text style={styles.genresText}>Comedy .</Text>
+          <Text style={styles.genresText}>Thrill .</Text>
+
+        </View>
+
+        {/*description */}
         <View>
         <Text style={styles.MovieDesc}>
           ggg ggggggg  hhhhhhhhhhhh jjjjjjj kkkkkkkkkkkk llllllllllllllllllllllllllll ggggggggggggggggggggggggg yyyyyyyyyyyyyyyyyyyyyyyy
         </Text>
         </View>
+
+        {/**cast */}
+        <Cast cast={cast}/>
 
       </ScrollView>
     </View>
@@ -94,6 +106,7 @@ backBtn:{
     backgroundColor:'gold',  // Adjust the padding to your preference 
 },
 Movietitle:{
+  marginTop:10,
   color:'white',
   fontWeight:'bold',
   fontSize:20,
@@ -101,6 +114,7 @@ Movietitle:{
   letterSpacing: 2,
 },
 MovieDetail:{
+  marginTop:10,
   fontWeight:'semi-bold',
   fontSize:14,
   color:'white',
@@ -108,9 +122,17 @@ MovieDetail:{
 
 },
 MovieDesc:{
+  marginTop:10,
   fontWeight:'semi-bold',
   fontSize:14,
   color:'white',
   textAlign:'center',
+},
+genresArea:{
+  flexDirection:'row',
+  justifyContent: "center",
+},genresText:{
+  fontSize:14,
+  color:'white',
 }
 });

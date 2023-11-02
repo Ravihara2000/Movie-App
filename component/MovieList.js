@@ -36,7 +36,7 @@ export default function MovieList({ title, data }) {
             onPress={() => navigation.navigate("Movie", item)}
           >
             <View>
-        <Image style={styles.movieCards} source={require('../assets/GoPro.jpg')} />
+        <Image style={styles.movieCards} source={require('../assets/codmw.jpg')} />
             
             
               <Text>{movieName.length>17? movieName.slice(0,14)+'...':movieName}</Text>
