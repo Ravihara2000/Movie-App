@@ -16,8 +16,13 @@ export default function MovieScreen() {
         //call the movie detail api
     },[item])
     const navigation = useNavigation();
-    const [isFavorite, toggleFavorite] = useState(false);
-    const heartIconColor = isFavorite ? 'red' : 'white';
+    const [isFavorite, setIsFavorite] = useState(false);
+    const toggleFavorite = () => {
+      // Toggle the favorite state
+      setIsFavorite(!isFavorite);
+    };
+    const heartIconColor = isFavorite ? 'yellow' : 'white';
+  
   return (
 
     <View style={styles.container}>
@@ -32,7 +37,7 @@ export default function MovieScreen() {
 
                 </ChevronLeftIcon>
             </TouchableOpacity>
-            <TouchableOpacity  onPress={()=> toggleFavorite(isFavorite)}>
+            <TouchableOpacity  onPress={toggleFavorite}>
                 <HeartIcon size={35} color={heartIconColor}/>
             </TouchableOpacity>
         </SafeAreaView>
