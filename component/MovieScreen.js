@@ -76,7 +76,7 @@ export default function MovieScreen() {
         {/*description */}
         <View>
         <Text style={styles.MovieDesc}>
-          ggg ggggggg  hhhhhhhhhhhh jjjjjjj kkkkkkkkkkkk llllllllllllllllllllllllllll ggggggggggggggggggggggggg yyyyyyyyyyyyyyyyyyyyyyyy
+        Call of Duty is a video game series and media franchise published by Activision, starting in 2003. The games were first developed by Infinity Ward, then by Treyarch and Sledgehammer Games. Several spin-off and handheld games were made by other developers. 
         </Text>
         </View>
 
