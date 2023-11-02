@@ -1,4 +1,4 @@
-import { View, Text, ScrollView,Dimensions, TouchableOpacity,StyleSheet, Platform } from 'react-native'
+import { View, Text, ScrollView,Dimensions, TouchableOpacity,StyleSheet, Platform, Image } from 'react-native'
 import React, { useEffect } from 'react'
 import { useRoute } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -6,11 +6,13 @@ import { ChevronLeftIcon } from 'react-native-heroicons/outline';
 import { HeartIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from "@react-navigation/native";
 import { useState } from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
 
 var { width, height } = Dimensions.get("window");
-const ios = Platform.OS=='ios';
-const topMargin = ios? '': 'mt-3';
+const ios = Platform.OS==='ios';
+const topMargin = ios? 0:'mt-3';
 export default function MovieScreen() {
+  let movieName = 'call of duty modenw walfare';
     const {params: item} = useRoute();
     useEffect(()=>{
         //call the movie detail api
@@ -41,6 +43,33 @@ export default function MovieScreen() {
                 <HeartIcon size={35} color={heartIconColor}/>
             </TouchableOpacity>
         </SafeAreaView>
+        <View>
+          <Image source={require('../assets/GoPro.jpg')}
+          style={{width,height:height*0.55}}/>
+
+      <LinearGradient
+        colors={['transparent', 'rgba(23,23,23,0.8)', 'rgba(23,23,23,1)']}
+        style={{ width, height: height * 0.40, position: 'absolute', bottom: 0 }}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+      />
+        </View>  
+        {/**title */}
+        <Text style={styles.Movietitle} >
+          {movieName}
+        </Text>
+
+        {/**start , release, rntime */}
+        <Text style={styles.MovieDetail}>
+          Released . 2020 . 170 min 
+        </Text>
+
+        {/**genres */}
+        <View>
+        <Text style={styles.MovieDesc}>
+          ggg ggggggg  hhhhhhhhhhhh jjjjjjj kkkkkkkkkkkk llllllllllllllllllllllllllll ggggggggggggggggggggggggg yyyyyyyyyyyyyyyyyyyyyyyy
+        </Text>
+        </View>
 
       </ScrollView>
     </View>
@@ -55,10 +84,33 @@ const styles = StyleSheet.create({
 safearea:{
     flexDirection:'row',
     justifyContent: "space-between",
+    marginTop: topMargin,
+    alignItems: 'center',
+    paddingHorizontal: 16,
 },
 backBtn:{
     borderRadius: 10,  // Adjust the radius to make the corners more or less rounded
     padding: 5,
     backgroundColor:'gold',  // Adjust the padding to your preference 
+},
+Movietitle:{
+  color:'white',
+  fontWeight:'bold',
+  fontSize:20,
+  textAlign:'center',
+  letterSpacing: 2,
+},
+MovieDetail:{
+  fontWeight:'semi-bold',
+  fontSize:14,
+  color:'white',
+  textAlign:'center',
+
+},
+MovieDesc:{
+  fontWeight:'semi-bold',
+  fontSize:14,
+  color:'white',
+  textAlign:'center',
 }
 });
