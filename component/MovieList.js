@@ -13,16 +13,21 @@ import { useNavigation } from "@react-navigation/native";
 
 
 var { width, height } = Dimensions.get("window");
-export default function MovieList({ title, data }) {
+export default function MovieList({ title, data, hideSeeAll }) {
   let movieName = "call of duty moden warfare";
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.titleHead}>
         <Text style={styles.textclr}>{title}</Text>
-        <TouchableOpacity>
-          <Text style={styles.textclr}>See All</Text>
-        </TouchableOpacity>
+        {
+          !hideSeeAll && (
+            <TouchableOpacity>
+            <Text style={styles.textclrSL}>See All</Text>
+          </TouchableOpacity>
+          )
+        }
+
       </View>
       {/*movie row */}
       <ScrollView
@@ -33,7 +38,7 @@ export default function MovieList({ title, data }) {
         {data.map((item, index) => (
           <TouchableWithoutFeedback
             key={index}
-            onPress={() => navigation.navigate("Movie", item)}
+            onPress={() => navigation.push("Movie", item)}
           >
             <View>
         <Image style={styles.movieCards} source={require('../assets/codmw.jpg')} />
@@ -66,5 +71,8 @@ const styles = StyleSheet.create({
   },
   textclr:{
     color:'white',
+  },
+  textclrSL:{
+    color:'yellow',
   }
 });

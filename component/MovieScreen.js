@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import Cast from './Cast';
+import MovieList from './MovieList';
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS==='ios';
@@ -25,6 +26,7 @@ export default function MovieScreen() {
       setIsFavorite(!isFavorite);
     };
     const [cast, setCast] = useState([1,2,3,4,5])
+    const [similarMovies, setSimilarMovies] = useState([1,2,3,4,5])
     const heartIconColor = isFavorite ? 'yellow' : 'white';
   
   return (
@@ -83,6 +85,9 @@ export default function MovieScreen() {
         {/**cast */}
         <Cast cast={cast}/>
 
+        {/**similar movies */}
+        <MovieList title="Similar Movies" hideSeeAll={true} data={similarMovies}/>
+
       </ScrollView>
     </View>
   )
@@ -115,7 +120,7 @@ Movietitle:{
 },
 MovieDetail:{
   marginTop:10,
-  fontWeight:'semi-bold',
+  fontWeight:'bold',
   fontSize:14,
   color:'white',
   textAlign:'center',

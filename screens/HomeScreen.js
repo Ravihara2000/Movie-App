@@ -48,7 +48,7 @@ export default function HomeScreen() {
           <TrendingMovies data={trending} />
 
           {/**upcoming movie raw */}
-          <MovieList title='upcoming' data={upcoming} />
+          <MovieList title='Upcoming' data={upcoming} />
           
           {/**top rated movie raw */}
           <MovieList title='Top Rated' data={topRated} />

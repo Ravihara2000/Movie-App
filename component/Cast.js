@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity,Image } from 'react-native';
 import React from 'react';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Cast({ cast }) {
   let characterName = 'John Wick';
   let personName = "michel johnson";
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -12,10 +14,10 @@ export default function Cast({ cast }) {
         {cast &&
           cast.map((person, index) => {
             return (
-              <TouchableOpacity key={index} style={styles.castItem}>
+              <TouchableOpacity onPress={()=>navigation.navigate('Person',person)}key={index} style={styles.castItem}>
                 <View style={styles.castImg}>
-                    <Image source={require('../assets/jhnwik.jpg')}
-          style={{height:50,width:50,borderRadius:10}}/>
+                    <Image source={require('../assets/profile.jpg')}
+          style={{height:50,width:50,borderRadius:50}}/>
                 </View>
                 <Text style={styles.characterName}>
                   {characterName.length > 10 ? characterName.slice(0, 10) + '...' : characterName}
@@ -41,6 +43,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'white',
+    marginBottom:10,
   },
   scrollContent: {
     paddingHorizontal: 15,
@@ -54,6 +57,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   castImg:{
-    backgroundColor:'yellow',
+    backgroundColor:'black',
   }
 });
