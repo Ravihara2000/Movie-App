@@ -62,6 +62,40 @@ export default function PersonScreen() {
           </View>
         </View>
       </View>
+      <View>
+        <Text
+          style={{
+            color: "white",
+            fontWeight: "bold",
+            fontSize: 30,
+            textAlign: "center",
+            marginTop: 20,
+          }}
+        >
+          Ravihara
+        </Text>
+        <Text style={{ textAlign: "center", color: "white", fontSize: 12 }}>
+          Matara, Sri Lanka
+        </Text>
+      </View>
+      <View style={styles.detailArea}>
+        <View>
+        <Text style={{fontSize:15}}>Gender</Text>
+        <Text>Male</Text>
+        </View>
+        <View>
+        <Text style={{fontSize:15}}>Gender</Text>
+        <Text>Male</Text>
+        </View>
+        <View>
+        <Text style={{fontSize:15}}>Gender</Text>
+        <Text>Male</Text>
+        </View>
+        <View>
+        <Text style={{fontSize:15}}>Gender</Text>
+        <Text>Male</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -89,5 +123,13 @@ const styles = StyleSheet.create({
   imageStyle: {
     alignItems: "center",
     overflow: "hidden",
+  },detailArea:{
+    marginTop:10,
+  flexDirection:'row',
+    borderRadius:20,
+    backgroundColor:'grey',
+    padding:5,
+    alignItems:'center',
+    
   },
 });
