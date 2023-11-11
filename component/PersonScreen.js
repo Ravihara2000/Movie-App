@@ -79,21 +79,24 @@ export default function PersonScreen() {
         </Text>
       </View>
       <View style={styles.detailArea}>
-        <View>
-        <Text style={{fontSize:15}}>Gender</Text>
-        <Text>Male</Text>
+        <View style={styles.detailItem}>
+          <Text style={{ fontSize: 15 }}>Gender</Text>
+          <Text>Male</Text>
         </View>
-        <View>
-        <Text style={{fontSize:15}}>Gender</Text>
-        <Text>Male</Text>
+        <View style={styles.verticalLine}></View>
+        <View style={styles.detailItem}>
+          <Text style={{ fontSize: 15 }}>Birthday</Text>
+          <Text>1964-09-02</Text>
         </View>
-        <View>
-        <Text style={{fontSize:15}}>Gender</Text>
-        <Text>Male</Text>
+        <View style={styles.verticalLine}></View>
+        <View style={styles.detailItem}>
+          <Text style={{ fontSize: 15 }}>Known for</Text>
+          <Text>Acting</Text>
         </View>
-        <View>
-        <Text style={{fontSize:15}}>Gender</Text>
-        <Text>Male</Text>
+        <View style={styles.verticalLine}></View>
+        <View style={styles.detailItem}>
+          <Text style={{ fontSize: 15 }}>Popularity</Text>
+          <Text>64.23</Text>
         </View>
       </View>
     </View>
@@ -123,13 +126,22 @@ const styles = StyleSheet.create({
   imageStyle: {
     alignItems: "center",
     overflow: "hidden",
-  },detailArea:{
-    marginTop:10,
-  flexDirection:'row',
-    borderRadius:20,
-    backgroundColor:'grey',
-    padding:5,
-    alignItems:'center',
-    
+  },
+  detailArea: {
+    marginTop: 10,
+    flexDirection: "row",
+    borderRadius: 20,
+    backgroundColor: "grey",
+    padding: 5,
+    alignItems: "center",
+  },
+  detailItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+    verticalLine: {
+    height: '80%', // Adjust the height of the vertical line as needed
+    width: 1, // Width of the vertical line
+    backgroundColor: 'white',
   },
 });
