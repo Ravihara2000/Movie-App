@@ -17,12 +17,15 @@ import {
   MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
 import MovieList from "../component/MovieList";
+import { useNavigation } from "@react-navigation/native";
+import SearchScreen from "../component/SearchScreen";
 
 //const ios = Platform.OS == "ios";
 export default function HomeScreen() {
   const [trending, setTrending] = useState([1, 2, 3, 4]);
   const [upcoming, setUpcoming] = useState([1, 2, 3, 4]);
   const [topRated, setTopRated] = useState([1, 2, 3, 4]);
+  const navigation = useNavigation();
   return (
     <View style={styles.entireSc}>
       <SafeAreaView>
@@ -36,7 +39,7 @@ export default function HomeScreen() {
           <Text style={styles.headerText}>
             <Text style={styles.firstLetter}>M</Text>ovies
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate('Search')}>
             <MagnifyingGlassIcon size={30} strokeWidth={2} color={"white"} />
           </TouchableOpacity>
         </View>
