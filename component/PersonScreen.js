@@ -14,6 +14,7 @@ import { HeartIcon } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import MovieList from "./MovieList";
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS === "ios";
@@ -26,9 +27,11 @@ export default function PersonScreen() {
     // Toggle the favorite state
     setIsFavorite(!isFavorite);
   };
+  const [personMovies,setPersonMovies]=useState([1,2,3,4])
   const heartIconColor = isFavorite ? "yellow" : "white";
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+    <View >
       {/**back button and movie poster */}
       <SafeAreaView style={styles.safearea}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -99,7 +102,15 @@ export default function PersonScreen() {
           <Text>64.23</Text>
         </View>
       </View>
+
     </View>
+    <View style={{marginTop:10,}}>
+      <Text style={{fontSize:15,color:'white',}}>Biography</Text>
+      <Text  style={{fontSize:15,color:'white',marginTop:10,marginBottom:5}}>Call of Duty is a video game series and media franchise published by Activision, starting in 2003. The games were first developed by Infinity Ward, then by Treyarch and Sledgehammer Games. Several spin-off and handheld games were made by other developers.</Text>
+    </View>
+
+    <MovieList title={"Movies"} hideSeeAll={true} data={personMovies}/>
+    </ScrollView>
   );
 }
 
