@@ -17,7 +17,7 @@ import { XMarkIcon } from "react-native-heroicons/outline";
 var { width, height } = Dimensions.get("window");
 export default function SearchScreen() {
   const navigation = useNavigation();
-  const [result, setResult] = useState([1,2,3,4,5]);
+  const [result, setResult] = useState([1,2,3,4]);
   let movieName = "call of duty moden warfare";
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>

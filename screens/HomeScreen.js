@@ -19,30 +19,33 @@ import {
 import MovieList from "../component/MovieList";
 import { useNavigation } from "@react-navigation/native";
 import SearchScreen from "../component/SearchScreen";
+import Loading from "../component/Loading";
 
 //const ios = Platform.OS == "ios";
 export default function HomeScreen() {
   const [trending, setTrending] = useState([1, 2, 3, 4]);
   const [upcoming, setUpcoming] = useState([1, 2, 3, 4]);
   const [topRated, setTopRated] = useState([1, 2, 3, 4]);
+  const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
+
   return (
     <View style={styles.entireSc}>
       <SafeAreaView>
         <View style={styles.heroSection}>
-          <Bars3CenterLeftIcon
-            size={30}
-            strokeWidth={2}
-            color={"white"}
-          />
+          <Bars3CenterLeftIcon size={30} strokeWidth={2} color={"white"} />
 
           <Text style={styles.headerText}>
             <Text style={styles.firstLetter}>M</Text>ovies
           </Text>
-          <TouchableOpacity onPress={()=>navigation.navigate('Search')}>
+          <TouchableOpacity onPress={() => navigation.navigate("Search")}>
             <MagnifyingGlassIcon size={30} strokeWidth={2} color={"white"} />
           </TouchableOpacity>
         </View>
+      </SafeAreaView>
+      {loading ? (
+        <Loading />
+      ) : (
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 10 }}
@@ -51,12 +54,12 @@ export default function HomeScreen() {
           <TrendingMovies data={trending} />
 
           {/**upcoming movie raw */}
-          <MovieList title='Upcoming' data={upcoming} />
-          
+          <MovieList title="Upcoming" data={upcoming} />
+
           {/**top rated movie raw */}
-          <MovieList title='Top Rated' data={topRated} />
+          <MovieList title="Top Rated" data={topRated} />
         </ScrollView>
-      </SafeAreaView>
+      )}
     </View>
   );
 }
@@ -83,9 +86,8 @@ const styles = StyleSheet.create({
   firstLetter: {
     color: "orange",
   },
-  entireSc:{
-    backgroundColor:'black',
+  entireSc: {
+    backgroundColor: "black",
     flex: 1,
-    
-  }
+  },
 });
