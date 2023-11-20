@@ -35,6 +35,7 @@ export default function TrendingMovies({ data }) {
 }
 
 const MovieCard = ({ item, handClick }) => {
+  console.log('item poster path',item.poster_path);
   return (
     <TouchableWithoutFeedback onPress={()=>handClick(item)}>
       <Image
