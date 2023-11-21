@@ -9,8 +9,8 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
 
+import { useNavigation } from "@react-navigation/native";
 
 var { width, height } = Dimensions.get("window");
 export default function MovieList({ title, data, hideSeeAll }) {
@@ -20,14 +20,11 @@ export default function MovieList({ title, data, hideSeeAll }) {
     <View style={styles.container}>
       <View style={styles.titleHead}>
         <Text style={styles.textclr}>{title}</Text>
-        {
-          !hideSeeAll && (
-            <TouchableOpacity>
+        {!hideSeeAll && (
+          <TouchableOpacity>
             <Text style={styles.textclrSL}>See All</Text>
           </TouchableOpacity>
-          )
-        }
-
+        )}
       </View>
       {/*movie row */}
       <ScrollView
@@ -41,10 +38,12 @@ export default function MovieList({ title, data, hideSeeAll }) {
             onPress={() => navigation.push("Movie", item)}
           >
             <View>
-        <Image style={styles.movieCards} source={require('../assets/codmw.jpg')} />
-            
-            
-              <Text>{movieName.length>17? movieName.slice(0,14)+'...':movieName}</Text>
+              <Image
+                style={styles.movieCards}
+                //source={{uri: image185(item.poster_path) || fallbackMoviePoster}} 
+                source={require("../assets/codmw.jpg")}
+              />
+
             </View>
           </TouchableWithoutFeedback>
         ))}
@@ -56,23 +55,23 @@ export default function MovieList({ title, data, hideSeeAll }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'black',
+    backgroundColor: "black",
   },
   titleHead: {
     justifyContent: "space-between",
     flexDirection: "row",
     margin: 10,
   },
-  movieCards:{
+  movieCards: {
     width: width * 0.33,
     height: height * 0.22,
     flex: 1,
-    borderRadius:20,
+    borderRadius: 20,
   },
-  textclr:{
-    color:'white',
+  textclr: {
+    color: "white",
   },
-  textclrSL:{
-    color:'yellow',
-  }
+  textclrSL: {
+    color: "yellow",
+  },
 });

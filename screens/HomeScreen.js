@@ -20,6 +20,7 @@ import MovieList from "../component/MovieList";
 import { useNavigation } from "@react-navigation/native";
 import SearchScreen from "../component/SearchScreen";
 import Loading from "../component/Loading";
+//import { fetchTopRatedMovies, fetchTrendingMovies, fetchUpcomingMovies } from "../api/moviedb";
 //import { fetchTrendingMovies } from "../api/moviedb";
 
 //const ios = Platform.OS == "ios";
@@ -29,29 +30,6 @@ export default function HomeScreen() {
   const [topRated, setTopRated] = useState([1, 2, 3, 4]);
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
-
-  useEffect(()=>{
-    getTrendingMovies();
-    getUpcomingMovies();
-    getTopRatedMovies();
-  },[]);
-
-  const getTrendingMovies = async ()=>{
-    const data = await fetchTrendingMovies();
-    console.log('got trending', data.results.length)
-    if(data && data.results) setTrending(data.results);
-    setLoading(false)
-  }
-  const getUpcomingMovies = async ()=>{
-    const data = await fetchUpcomingMovies();
-    console.log('got upcoming', data.results.length)
-    if(data && data.results) setUpcoming(data.results);
-  }
-  const getTopRatedMovies = async ()=>{
-    const data = await fetchTopRatedMovies();
-    console.log('got top rated', data.results.length)
-    if(data && data.results) setTopRated(data.results);
-  }
 
   return (
     <View style={styles.entireSc}>
@@ -75,13 +53,13 @@ export default function HomeScreen() {
           contentContainerStyle={{ paddingBottom: 10 }}
         >
           {/*movie list */}
-         {trending.length>0 && <TrendingMovies data={trending} />}
+          <TrendingMovies data={trending} />
 
           {/**upcoming movie raw */}
-          {upcoming.length>0 &&<MovieList title="Upcoming" data={upcoming} />}
+          <MovieList title="Upcoming" data={upcoming} />
 
           {/**top rated movie raw */}
-          {topRated.length>0 &&<MovieList title="Top Rated" data={topRated} />}
+          <MovieList title="Top Rated" data={topRated} />
         </ScrollView>
       )}
     </View>

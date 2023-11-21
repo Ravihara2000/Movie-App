@@ -9,7 +9,6 @@ import {
 import React from "react";
 import Carousel from "react-native-snap-carousel";
 import { useNavigation } from "@react-navigation/native";
-
 var { width, height } = Dimensions.get("window"); //get mobile height n width
 export default function TrendingMovies({ data }) {
   const navigation = useNavigation();
@@ -41,6 +40,9 @@ const MovieCard = ({ item, handClick }) => {
       <Image
         style={styles.movieCards}
         source={require("../assets/codmw.jpg")}
+        //source={{uri: image500(item.poster_path)}} 
+        //source={{ uri: image500(item.poster_path) }}
+
       />
     </TouchableWithoutFeedback>
   );
