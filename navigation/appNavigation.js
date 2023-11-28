@@ -3,9 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import MovieScreen from '../component/MovieScreen';
-import PersonScreen from '../component/PersonScreen';
-import SearchScreen from '../component/SearchScreen';
+import MovieScreen from '../screens/MovieScreen';
+import PersonScreen from '../screens/PersonScreen';
+import SearchScreen from '../screens/SearchScreen';
 
 
 const Stack = createNativeStackNavigator();

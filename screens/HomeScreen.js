@@ -1,4 +1,3 @@
-import Screen from "../screens/HomeScreen"; // Rename the imported component
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -18,19 +17,29 @@ import {
 } from "react-native-heroicons/outline";
 import MovieList from "../component/MovieList";
 import { useNavigation } from "@react-navigation/native";
-import SearchScreen from "../component/SearchScreen";
+import SearchScreen from "./SearchScreen";
 import Loading from "../component/Loading";
 //import { fetchTopRatedMovies, fetchTrendingMovies, fetchUpcomingMovies } from "../api/moviedb";
-//import { fetchTrendingMovies } from "../api/moviedb";
+import { fetchTrendingMovies } from "../api/moviedb";
 
 //const ios = Platform.OS == "ios";
 export default function HomeScreen() {
   const [trending, setTrending] = useState([1, 2, 3, 4]);
   const [upcoming, setUpcoming] = useState([1, 2, 3, 4]);
   const [topRated, setTopRated] = useState([1, 2, 3, 4]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
+  useEffect(()=>{
+    getTrendingMovies();
+  },[])
+
+  const getTrendingMovies = async ()=>{
+    const data = await fetchTrendingMovies();
+    console.log('got trending movies :',data);
+    if(data && data.results) setTrending(data.results);
+    setLoading(false);
+  }
   return (
     <View style={styles.entireSc}>
       <SafeAreaView>
@@ -53,7 +62,7 @@ export default function HomeScreen() {
           contentContainerStyle={{ paddingBottom: 10 }}
         >
           {/*movie list */}
-          <TrendingMovies data={trending} />
+         {trending.length>0 && <TrendingMovies data={trending} />}
 
           {/**upcoming movie raw */}
           <MovieList title="Upcoming" data={upcoming} />

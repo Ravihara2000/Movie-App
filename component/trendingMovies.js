@@ -34,14 +34,15 @@ export default function TrendingMovies({ data }) {
 }
 
 const MovieCard = ({ item, handClick }) => {
-  console.log('item poster path',item.poster_path);
+  console.log('item.poster path',item.poster_path);
   return (
     <TouchableWithoutFeedback onPress={()=>handClick(item)}>
       <Image
         style={styles.movieCards}
-        source={require("../assets/codmw.jpg")}
+        //source={require("../assets/codmw.jpg")}
         //source={{uri: image500(item.poster_path)}} 
         //source={{ uri: image500(item.poster_path) }}
+        source={{ uri: image500(item.poster_path) }}
 
       />
     </TouchableWithoutFeedback>

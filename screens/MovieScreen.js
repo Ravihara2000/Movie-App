@@ -7,8 +7,8 @@ import { HeartIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from "@react-navigation/native";
 import { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import Cast from './Cast';
-import MovieList from './MovieList';
+import Cast from '../component/Cast';
+import MovieList from '../component/MovieList';
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS==='ios';
